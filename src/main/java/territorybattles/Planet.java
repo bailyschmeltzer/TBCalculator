@@ -8,6 +8,7 @@ public class Planet {
     public int star2;
     public int star3;
     public String zone;
+    public int platoons;
 
     public Planet() {
         this.star1 = 0;
@@ -17,6 +18,7 @@ public class Planet {
         this.preload = false;
         this.starred = false;
         this.zone = "";
+        this.platoons = 0;
     }
 
     public String getZone() {
@@ -81,6 +83,19 @@ public class Planet {
 
     public void togglePreload() {
         this.preload = !this.preload;
+    }
+
+    public int getPlatoons() {
+        return platoons;
+    }
+
+    public void setPlatoons(int platoons) {
+        if (platoons <0 || platoons > 6) {
+            throw new IllegalArgumentException("Platoons must be between 0 and 6.");
+        }   else {
+            platoonValue = platoonValue /6;
+            this.platoons = platoons * platoonValue;
+        }
     }
 
 }

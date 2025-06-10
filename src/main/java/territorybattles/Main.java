@@ -59,6 +59,23 @@ public class Main {
             // Track preloaded planets for each list
             Integer preloadDark = null, preloadMixed = null, preloadLight = null;
 
+            List<Planet> allPlanets = Arrays.asList(
+                mustafar, geonosis, dathomir, haven, malachor, deathStar,
+                corellia, felucia, tatooine, kessel, vandor, hoth,
+                coruscant, bracca, kashyyyk, lothal, kafrene, scarif
+            );
+
+            for (Planet planet : allPlanets) {
+                int platoonsCompleted = 0;
+                while (true) {
+                    System.out.print("Enter number of platoons completed for " + planet.getClass().getSimpleName() + " (" + planet.zone + ") (0-6): ");
+                    platoonsCompleted = scanner.nextInt();
+                    if (platoonsCompleted >= 0 && platoonsCompleted <= 6) break;
+                    System.out.println("Please enter a value between 0 and 6.");
+                }
+                planet.setPlatoons(platoonsCompleted);
+            }
+
             for (int phase = 1; phase <= Math.min(phases, 6); phase++) {
                 System.out.println("\n--- Phase " + phase + " ---");
                 int phaseStars = 0;
@@ -85,7 +102,7 @@ public class Main {
                 preloadDark = preloadMixed = preloadLight = null;
 
                 // Calculate combat missions and remaining GP ONCE per phase
-                int combatMissions = guildGP / 4;
+                int combatMissions = guildGP / 6;
                 int remainingGP = guildGP + combatMissions;
 
                 // Track which index to use for each zone in the next phase
@@ -95,14 +112,7 @@ public class Main {
                     Planet planet = phasePlanets[i];
                     int starsThisPlanet = 0;
 
-                    // Ask user for platoons completed for this planet (max 6)
-                    int platoonsCompleted = 0;
-                    while (true) {
-                        System.out.print("Phase " + phase + " - " + planet.getClass().getSimpleName() + " (" + planet.zone + "): Enter number of platoons completed (0-6): ");
-                        platoonsCompleted = scanner.nextInt();
-                        if (platoonsCompleted >= 0 && platoonsCompleted <= 6) break;
-                        System.out.println("Please enter a value between 0 and 6.");
-                    }
+                
                     // Find which zone this planet is in to update the correct index/preload
                     int zoneIdx = -1;
                     if (planet == darkPlanets.get(darkStart)) zoneIdx = 0;
@@ -112,9 +122,7 @@ public class Main {
                     // Special logic for phase 6: use all remaining GP, no preloading
                     if (phase == 6) {
                         int nextStarCost = -1;
-
-                        // Always add platoon value in phase 6, regardless of stars
-                        remainingGP += (planet.platoonValue / 6.0) * platoonsCompleted;
+                        remainingGP += planet.platoons;
 
                         if (remainingGP < planet.star1) {
                             nextStarCost = planet.star1 - remainingGP;
@@ -143,7 +151,6 @@ public class Main {
                             if (zoneIdx == 2 && lightStart + 1 < lightPlanets.size()) nextLightIndex = lightStart + 1;
                         }
                         phaseStars += starsThisPlanet;
-                        System.out.println("Guild GP Remaining: " + remainingGP);
                         System.out.print("Planet attempted: " + planet.getClass().getSimpleName() + " (" + planet.zone + ") | Stars gained: " + starsThisPlanet);
                         if (nextStarCost > 0) {
                             System.out.print(" | GP needed for next star: " + nextStarCost);
@@ -177,7 +184,7 @@ public class Main {
                     }
 
                     // Only add platoon value if not preloaded
-                    remainingGP += (planet.platoonValue / 6.0) * platoonsCompleted;
+                    remainingGP += planet.platoons;
 
                     // Star logic
                     if (remainingGP >= planet.star1) {
@@ -206,6 +213,11 @@ public class Main {
 
                 totalStars += phaseStars;
                 System.out.println("Total stars after phase " + phase + ": " + totalStars);
+
+                if (phase == 6) {
+                    System.out.println("Guild GP Remaining: " + remainingGP);
+                }
+
                 if (planetPreloaded) {
                     System.out.println("Planet preloaded this phase: " + preloadedPlanetZone);
                     for (Planet planet : phasePlanets) {
