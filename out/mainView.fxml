@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="20" alignment="TOP_CENTER" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+      style="-fx-background-color: #000000;" fx:controller="territorybattles.controller.MainViewController">
+    <padding>
+        <Insets top="30" right="30" bottom="30" left="30"/>
+    </padding>
+    <Label text="Welcome to the Territory Battles Calculator"
+           style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+    <HBox spacing="10" alignment="CENTER">
+        <Label text="Guild GP:" style="-fx-text-fill: white;"/>
+        <TextField fx:id="guildGPField" promptText="Enter guild GP"
+                   alignment="CENTER" style="-fx-background-color: #222; -fx-text-fill: white;"/>
+    </HBox>
+    <Label text="Enter number of platoons completed for each planet:"
+           style="-fx-font-size: 16px; -fx-text-fill: white;"/>
+    <GridPane hgap="40" vgap="10" alignment="CENTER">
+        <columnConstraints>
+            <ColumnConstraints halignment="CENTER"/>
+            <ColumnConstraints halignment="CENTER"/>
+            <ColumnConstraints halignment="CENTER"/>
+        </columnConstraints>
+        <!-- Headers -->
+        <Label text="Dark Side" style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: white;" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <Label text="Mixed" style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: white;" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+        <Label text="Light Side" style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: white;" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+
+        <!-- Dark Side Planets -->
+        <GridPane vgap="8" alignment="CENTER" GridPane.rowIndex="1" GridPane.columnIndex="0">
+            <Label text="Mustafar:" style="-fx-text-fill: white;" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField fx:id="mustafarField" promptText="0-6" prefWidth="80"
+                       style="-fx-background-color: #222; -fx-text-fill: white;" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+            <Label text="Geonosis:" style="-fx-text-fill: white;" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <TextField fx:id="geonosisField" promptText="0-6" prefWidth="80"
+                       style="-fx-background-color: #222; -fx-text-fill: white;" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+            <Label text="Dathomir:" style="-fx-text-fill: white;" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <TextField fx:id="dathomirField" promptText="0-6" prefWidth="80"
+                       style="-fx-background-color: #222; -fx-text-fill: white;" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+            <Label text="Haven:" style="-fx-text-fill: white;" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+            <TextField fx:id="havenField" promptText="0-6" prefWidth="80"
+                       style="-fx-background-color: #222; -fx-text-fill: white;" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+            <Label text="Malachor:" style="-fx-text-fill: white;" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+            <TextField fx:id="malachorField" promptText="0-6" prefWidth="80"
+                       style="-fx-background-color: #222; -fx-text-fill: white;" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+            <Label text="Death Star:" style="-fx-text-fill: white;" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+            <TextField fx:id="deathstarField" promptText="0-6" prefWidth="80"
+                       style="-fx-background-color: #222; -fx-text-fill: white;" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+        </GridPane>
+
+        <!-- Mixed Planets -->
+        <GridPane vgap="8" alignment="CENTER" GridPane.rowIndex="1" GridPane.columnIndex="1">
+            <Label text="Coruscant:" style="-fx-text-fill: white;" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField fx:id="coruscantField" promptText="0-6" prefWidth="80"
+                       style="-fx-background-color: #222; -fx-text-fill: white;" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+            <Label text="Bracca:" style="-fx-text-fill: white;" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <TextField fx:id="braccaField" promptText="0-6" prefWidth="80"
+                       style="-fx-background-color: #222; -fx-text-fill: white;" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+            <Label text="Kashyyyk:" style="-fx-text-fill: white;" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <TextField fx:id="kashyyykField" promptText="0-6" prefWidth="80"
+                       style="-fx-background-color: #222; -fx-text-fill: white;" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+            <Label text="Lothal:" style="-fx-text-fill: white;" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+            <TextField fx:id="lothalField" promptText="0-6" prefWidth="80"
+                       style="-fx-background-color: #222; -fx-text-fill: white;" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+            <Label text="Kafrene:" style="-fx-text-fill: white;" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+            <TextField fx:id="kafreneField" promptText="0-6" prefWidth="80"
+                       style="-fx-background-color: #222; -fx-text-fill: white;" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+            <Label text="Scarif:" style="-fx-text-fill: white;" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+            <TextField fx:id="scarifField" promptText="0-6" prefWidth="80"
+                       style="-fx-background-color: #222; -fx-text-fill: white;" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+        </GridPane>
+
+        <!-- Light Side Planets -->
+        <GridPane vgap="8" alignment="CENTER" GridPane.rowIndex="1" GridPane.columnIndex="2">
+            <Label text="Corellia:" style="-fx-text-fill: white;" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField fx:id="corelliaField" promptText="0-6" prefWidth="80"
+                       style="-fx-background-color: #222; -fx-text-fill: white;" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+            <Label text="Felucia:" style="-fx-text-fill: white;" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <TextField fx:id="feluciaField" promptText="0-6" prefWidth="80"
+                       style="-fx-background-color: #222; -fx-text-fill: white;" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+            <Label text="Tatooine:" style="-fx-text-fill: white;" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <TextField fx:id="tatooineField" promptText="0-6" prefWidth="80"
+                       style="-fx-background-color: #222; -fx-text-fill: white;" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+            <Label text="Kessel:" style="-fx-text-fill: white;" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+            <TextField fx:id="kesselField" promptText="0-6" prefWidth="80"
+                       style="-fx-background-color: #222; -fx-text-fill: white;" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+            <Label text="Vandor:" style="-fx-text-fill: white;" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+            <TextField fx:id="vandorField" promptText="0-6" prefWidth="80"
+                       style="-fx-background-color: #222; -fx-text-fill: white;" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+            <Label text="Hoth:" style="-fx-text-fill: white;" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+            <TextField fx:id="hothField" promptText="0-6" prefWidth="80"
+                       style="-fx-background-color: #222; -fx-text-fill: white;" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+        </GridPane>
+    </GridPane>
+    <Button text="Calculate" fx:id="calculateButton" onAction="#handleCalculate"
+            style="-fx-font-size: 16px; -fx-background-radius: 8; -fx-background-color: #4169e1; -fx-text-fill: white;"/>
+</VBox>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import territorybattles.controller.ResultsViewController?>
+
+<VBox spacing="20" alignment="TOP_CENTER" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+      style="-fx-background-color: #000000;" fx:controller="territorybattles.controller.ResultsViewController">
+    <padding>
+        <Insets top="30" right="30" bottom="30" left="30"/>
+    </padding>
+    <Label text="Territory Battles Results"
+           style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+    <Label text="Results are separated by phase." style="-fx-font-size: 16px; -fx-text-fill: white;"/>
+
+    <GridPane hgap="40" vgap="15" alignment="CENTER">
+        <!-- Left column: Phases 1, 2, 3 -->
+        <VBox spacing="15" alignment="CENTER" GridPane.rowIndex="0" GridPane.columnIndex="0" VBox.vgrow="ALWAYS">
+            <children>
+                <Label text="Phase 1" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+                <TextArea fx:id="phase1Results" editable="false" wrapText="true"
+                          style="-fx-control-inner-background: #000000; -fx-text-fill: white; -fx-font-size: 14px;"
+                          VBox.vgrow="ALWAYS"/>
+                <Label text="Phase 2" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+                <TextArea fx:id="phase2Results" editable="false" wrapText="true"
+                          style="-fx-control-inner-background: #000000; -fx-text-fill: white; -fx-font-size: 14px;"
+                          VBox.vgrow="ALWAYS"/>
+                <Label text="Phase 3" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+                <TextArea fx:id="phase3Results" editable="false" wrapText="true"
+                          style="-fx-control-inner-background: #000000; -fx-text-fill: white; -fx-font-size: 14px;"
+                          VBox.vgrow="ALWAYS"/>
+            </children>
+        </VBox>
+        <!-- Right column: Phases 4, 5, 6 -->
+        <VBox spacing="15" alignment="CENTER" GridPane.rowIndex="0" GridPane.columnIndex="1" VBox.vgrow="ALWAYS">
+            <children>
+                <Label text="Phase 4" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+                <TextArea fx:id="phase4Results" editable="false" wrapText="true"
+                          style="-fx-control-inner-background: #000000; -fx-text-fill: white; -fx-font-size: 14px;"
+                          VBox.vgrow="ALWAYS"/>
+                <Label text="Phase 5" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+                <TextArea fx:id="phase5Results" editable="false" wrapText="true"
+                          style="-fx-control-inner-background: #000000; -fx-text-fill: white; -fx-font-size: 14px;"
+                          VBox.vgrow="ALWAYS"/>
+                <Label text="Phase 6" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+                <TextArea fx:id="phase6Results" editable="false" wrapText="true"
+                          style="-fx-control-inner-background: #000000; -fx-text-fill: white; -fx-font-size: 14px;"
+                          VBox.vgrow="ALWAYS"/>
+            </children>
+        </VBox>
+    </GridPane>
+
+    <!-- Final star count label -->
+    <Label fx:id="finalStarCountLabel"
+           text="Final Star Count: 0"
+           style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: gold;"/>
+
+    <!-- Guild GP label -->
+    <Label fx:id="guildGPLabel"
+           text="Guild GP: "
+           style="-fx-font-size: 16px; -fx-text-fill: #FFD700;"/>
+
+    <!-- Buttons aligned horizontally -->
+    <HBox spacing="30" alignment="CENTER">
+        <Button text="Back" fx:id="backButton"
+                style="-fx-font-size: 16px; -fx-background-radius: 8; -fx-background-color: #4169e1; -fx-text-fill: white;"
+                onAction="#handleBack"/>
+        <Button text="Exit"
+                fx:id="exitButton"
+                style="-fx-font-size: 16px; -fx-background-radius: 8; -fx-background-color: #c0392b; -fx-text-fill: white;"
+                onAction="#handleExit"/>
+    </HBox>
+</VBox>
